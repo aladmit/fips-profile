@@ -20,7 +20,9 @@
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
-      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "shutdown_command": "sudo -S /sbin/halt -h -p",
+      "guest_additions_path": "VBoxGuestAdditions.iso",
+      "virtualbox_version_file": ".vbox_version",
       "vm_name": "packer-centos-7",
       "vboxmanage": [
         [
@@ -29,6 +31,22 @@
         [
           "modifyvm", "{{.Name}}", "--cpus", "2"
         ]
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo mkdir /tmp/vboxguest",
+        "sudo mount -t iso9660 -o loop /home/vagrant/VBoxGuestAdditions.iso /tmp/vboxguest",
+        "sudo yum -y groupinstall 'Development Tools'",
+        "cd /tmp/vboxguest",
+        "sudo ./VBoxLinuxAdditions.run",
+        "cd /tmp",
+        "sudo umount /tmp/vboxguest",
+        "sudo rmdir /tmp/vboxguest",
+        "rm /home/vagrant/VBoxGuestAdditions.iso"
       ]
     }
   ],
