@@ -69,3 +69,25 @@ control 'fips-05' do
     its(:kernel) { should include /boot=/ }
   end
 end
+
+control 'fips-06' do
+  impact 1.0
+  title 'Check SSHD config'
+  desc 'SSH should use specific protocol, macs and ciphers'
+
+  describe sshd_config do
+    its(:protocol) { should cmp == 2 }
+
+    its(:macs) { should include 'hmac-sha1' }
+    its(:macs) { should include 'hmac-sha2-256' }
+    its(:macs) { should include 'hmac-sha2-512' }
+
+    its(:ciphers) { should include 'aes128-ctr' }
+    its(:ciphers) { should include 'aes192-ctr' }
+    its(:ciphers) { should include 'aes256-ctr' }
+    its(:ciphers) { should include 'aes128-cbc' }
+    its(:ciphers) { should include '3des-cbc' }
+    its(:ciphers) { should include 'aes192-cbc' }
+    its(:ciphers) { should include 'aes256-cbc' }
+  end
+end
