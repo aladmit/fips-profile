@@ -7,5 +7,5 @@ rvm:
 
 bundler_args: --without integration
 script:
- - bundle exec inspec chech ./
+ - bundle exec inspec check ./
  - bundle exec rubocop
