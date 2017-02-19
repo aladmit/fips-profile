@@ -1,0 +1,15 @@
+---
+driver:
+  name: vagrant
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos
+    driver:
+      box: fips-profile-centos
+      box_url: file://./packer/builds/virtualbox-centos7.box
+
+suites:
+  - name: fips

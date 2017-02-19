@@ -5,3 +5,5 @@ packer/packer_cache/
 packer/output-virtualbox-iso/
 packer/builds/*
 inspec.lock
+.kitchen/
+.kitchen.local.yml
