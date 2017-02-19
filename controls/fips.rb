@@ -28,3 +28,29 @@ control 'fips-03' do
     its(:value) { should eq 1 }
   end
 end
+
+control 'fips-04' do
+  impact 1.0
+  title 'Check crypt modules'
+  desc 'System should use specific crypto modules'
+
+  describe kernel_module('fcrypt') do
+    it { should be_enabled }
+  end
+
+  describe kernel_module('dm_crypt') do
+    it { should be_enabled }
+  end
+
+  describe kernel_module('crypto_null') do
+    it { should be_enabled }
+  end
+
+  describe kernel_module('cryptd') do
+    it { should be_enabled }
+  end
+
+  describe kernel_module('dm_mod') do
+    it { should be_enabled }
+  end
+end
