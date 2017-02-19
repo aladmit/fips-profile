@@ -11,7 +11,6 @@
       "guest_os_type": "RedHat_64",
       "headless": true,
       "iso_urls": [
-        "CentOS-7-x86_64-Minimal-1611.iso",
         "http://ftp.wrz.de/pub/CentOS/7/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso"
       ],
       "iso_checksum_type": "sha256",
