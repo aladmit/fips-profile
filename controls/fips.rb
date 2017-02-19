@@ -9,3 +9,12 @@ control 'fips-01' do
     its(:content) { should match /PRELINKING=no/ }
   end
 end
+
+control 'fips-02' do
+  impact 1.0
+  title 'Check packages'
+
+  describe package('dracut-fips') do
+    it { should be_installed }
+  end
+end
