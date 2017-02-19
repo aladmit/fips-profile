@@ -15,6 +15,6 @@ control 'fips-02' do
   title 'Check packages'
 
   describe package('dracut-fips') do
-    it { should be_intalled }
+    it { should be_installed }
   end
 end
