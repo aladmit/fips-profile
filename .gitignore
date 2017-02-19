@@ -1,3 +1,5 @@
+.bundle/
+/vendor/
 .vagrant/
 packer/packer_cache/
 packer/output-virtualbox-iso/
