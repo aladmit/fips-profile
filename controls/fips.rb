@@ -18,3 +18,13 @@ control 'fips-02' do
     it { should be_installed }
   end
 end
+
+control 'fips-03' do
+  impact 1.0
+  title 'Check kernel params'
+  desc 'FIPS mode shoud be enabled'
+
+  describe kernel_parameter('crypto/fips_enabled') do
+    its(:value) { should eq 1 }
+  end
+end
