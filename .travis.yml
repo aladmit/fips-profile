@@ -6,5 +6,6 @@ rvm:
   - 2.3.1
 
 bundler_args: --without integration
-script: bundle exec inspec chech ./
-script: bundle exec rubocop
+script:
+ - bundle exec inspec chech ./
+ - bundle exec rubocop
