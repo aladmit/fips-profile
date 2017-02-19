@@ -1,0 +1,8 @@
+name: fips-profile
+title: Compliance with FIPS
+maintainer: Andrey Aleksandrov
+copyright: Andrey Aleksandrov
+copyright_email: postgred@gmail.com
+license: MIT
+summary: Test-suite for Federal Information Processing Standard
+version: 0.1.0
