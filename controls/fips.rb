@@ -13,6 +13,7 @@ end
 control 'fips-02' do
   impact 1.0
   title 'Check packages'
+  desc 'dracut-fips package should be installed'
 
   describe package('dracut-fips') do
     it { should be_installed }
