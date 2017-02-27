@@ -30,30 +30,29 @@ control 'fips-03' do
   end
 end
 
-# TODO: create issue on github. can't check modules
 control 'fips-04' do
   impact 1.0
   title 'Check crypt modules'
   desc 'System should use specific crypto modules'
 
   describe kernel_module('fcrypt') do
-    it { should be_enabled }
+    it { should be_loaded }
   end
 
   describe kernel_module('dm_crypt') do
-    it { should be_enabled }
+    it { should be_loaded }
   end
 
   describe kernel_module('crypto_null') do
-    it { should be_enabled }
+    it { should be_loaded }
   end
 
   describe kernel_module('cryptd') do
-    it { should be_enabled }
+    it { should be_loaded }
   end
 
   describe kernel_module('dm_mod') do
-    it { should be_enabled }
+    it { should be_loaded }
   end
 end
 
